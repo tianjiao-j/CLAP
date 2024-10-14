@@ -1,1 +1,7 @@
 training.log
+__pycache__/
+.idea/
+data/datasets/
+runs/
+data/
+prompts/

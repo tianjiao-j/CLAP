@@ -117,7 +117,7 @@ class EarlyStopping:
         self.counter = 0
         self.best_score = None
         self.early_stop = False
-        self.loss_min = np.Inf
+        self.loss_min = np.inf
         self.delta = delta
         self.start_save = start_save
     

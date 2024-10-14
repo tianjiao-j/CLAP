@@ -28,7 +28,7 @@ dset = args.dataset_name
 dset_paths = []
 for fs_path in fewshot_paths: 
     dset_paths.append(check_mkdir(osp.join(fs_path, dset)))
-src_path = osp.join('data/datasets', dset)
+src_path = osp.join('../Tip-Adapter/data', dset)
 envs = os.listdir(src_path)
 for env in envs:
     src_env_path = osp.join(src_path, env)

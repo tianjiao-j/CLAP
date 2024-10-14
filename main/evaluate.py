@@ -258,7 +258,7 @@ def cw_loss(output, target, confidence=50, num_classes=10):
 
 def adversarial_attack(clip_model, network, text_feature,
                         images, labels, num_cls, adver_type="FGSM", eval_clip=False, zero_shot=True):
-    if adver_type is None:
+    if adver_type == 'None':
         return images
 
     if adver_type == "FGSM":

@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('dataset_name', type=str, help="The directory name of your dataset.")
 args = parser.parse_args()
 
-dataset_path = os.path.join('data/datasets/', args.dataset_name)
+dataset_path = os.path.join('../Tip-Adapter/data', args.dataset_name)
 domain1 = os.listdir(dataset_path)[0]
 names_root = os.path.join(dataset_path, domain1)
 
