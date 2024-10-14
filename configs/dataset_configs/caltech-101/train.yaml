@@ -18,7 +18,7 @@ load_weights:             # not used
 # [DATASETS]
 datasets:     
   - caltech-101                  # The test dataset for this training, to determine path to prompt and class names...
-batch_size: 8             # Batch size, we set it lager than the number of class names
+batch_size: 100  #8             # Batch size, we set it lager than the number of class names
 shuffle: True             # Shuffle the dataloader if True
 prompts_path: prompts/caltech-101    # Specify the path to training prompt source
 images_path:              # Specify the path to synthetic training images if training Im.Aug, otherwise leave it empty.
@@ -32,7 +32,7 @@ prompt_aug_params:
   img_type:  0            # The probability of deleting/replacing image type property
   art_style: 0            # The probability of deleting/replacing art style property
   reverse: 0.5            # The probability of swapping the statement order of the prompt.
-noise_len: 4              # The context length of random noise augmentation (set it to zero, when the class names is enough big)
+noise_len: 0  #4              # The context length of random noise augmentation (set it to zero, when the class names is enough big)
 std: 0.02                 # The standard deviation of random norm noise.
 
 # Image augmentation configurations, invalid when training CLAP
@@ -55,7 +55,7 @@ weight_decay: 0
 total_steps: 8000               # Total training steps
 tau_txt: 0.5                    # Temperature value of the loss function, only valid for CLAP
 tau_cnt: 1                      # Only valid for CLAP
-scale_coef: 1                   # Lambda coefficient to balance loss terms, only valid for CLAP
+scale_coef: 0.0001  #1                   # Lambda coefficient to balance loss terms, only valid for CLAP
 tau_img: 0.5                    # Temperature value of Im.Aug loss function
 log_frequency: 50               
 check_frequency: 480            # We generate 480 prompt samples per class, so we check loss at every 480 steps.

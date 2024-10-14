@@ -195,7 +195,7 @@ class ImageTextDataset(tud.Dataset):
 class MultiEnvDataset(tud.Dataset):
     def __init__(self, data_root, test_env, transform) -> None:
         super().__init__()
-        self.dataset = ImageFolder(osp.join(data_root, '101_ObjectCategories'), transform=transform)
+        self.dataset = ImageFolder(osp.join(data_root, 'images'), transform=transform)
         self.classes = [name.replace("_", " ").lower() for name in self.dataset.classes]
         self.sorted_classes = sorted(self.classes)
         self.prompts = {'C':[], 'PC':[], 'CP':[]}

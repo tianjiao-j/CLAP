@@ -62,7 +62,7 @@ def one_eval_get_zspc(scale):
         if file_name.endswith(".pth"):
             ckpt_name = file_name
             break
-    dataset = "PACS"
+    dataset = "caltech-101"
     state_dict = torch.load(osp.join(configs.ckpt_path, ckpt_name), map_location=configs.device)
     network.load_state_dict(state_dict=state_dict, strict=True)
     network.eval()
@@ -71,12 +71,12 @@ def one_eval_get_zspc(scale):
     mean_acc_c = []
     mean_acc_pc = []
     mean_acc_cp = []
-    for env in configs.eval_sets[dataset]:
-        evalset = MultiEnvDataset(osp.join("data/datasets", dataset),
+    for env in configs.eval_sets[0]:
+        evalset = MultiEnvDataset(osp.join("../Tip-Adapter/data", dataset),
                                     test_env=env, transform=preprocess)
         loader = tud.DataLoader(evalset, batch_size=128, shuffle=True, num_workers=24)
         
-        _, acc_zs = eval_zero_shot(clip_model, network, None, loader, evalset.prompts,
+        _, acc_zs = eval_zero_shot(clip_model, network, loader, evalset.prompts,
                                 device=configs.device, adver=None, cls_nums=cls_nums,
                                 eval_clip=False)
         mean_acc_c.append(acc_zs[0])

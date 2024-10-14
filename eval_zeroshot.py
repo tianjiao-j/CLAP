@@ -53,11 +53,12 @@ if not configs.eval_clip:
                                   repeat=configs.repeat, scale=configs.scale)
     network = network.to(configs.device)
 
-wf = open(osp.join(configs.ckpt_path, "eval_results_zeroshot.txt"), 'w')
-
 ckpt_list = ["clip.pth"]
 if not configs.eval_clip:
+    wf = open(osp.join(configs.ckpt_path, "eval_results_zeroshot.txt"), 'a')
     ckpt_list = os.listdir(configs.ckpt_path)
+else:
+    wf = open(osp.join(configs.ckpt_path, "eval_results_clip_zeroshot.txt"), 'a')
 
 # Evaluations
 for ckpt in ckpt_list:
